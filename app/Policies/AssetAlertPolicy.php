@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\AssetAlerts;
+use App\Models\AssetAlert;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
@@ -19,7 +19,7 @@ class AssetAlertPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, AssetAlerts $assetAlerts): bool
+    public function view(User $user, AssetAlert $assetAlert): bool
     {
         return false;
     }
@@ -35,7 +35,7 @@ class AssetAlertPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, AssetAlerts $assetAlerts): bool
+    public function update(User $user, AssetAlert $assetAlert): bool
     {
         return false;
     }
@@ -43,7 +43,7 @@ class AssetAlertPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, AssetAlerts $assetAlerts): bool
+    public function delete(User $user, AssetAlert $assetAlert): bool
     {
         return false;
     }
@@ -51,7 +51,7 @@ class AssetAlertPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, AssetAlerts $assetAlerts): bool
+    public function restore(User $user, AssetAlert $assetAlert): bool
     {
         return false;
     }
@@ -59,7 +59,7 @@ class AssetAlertPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, AssetAlerts $assetAlerts): bool
+    public function forceDelete(User $user, AssetAlert $assetAlert): bool
     {
         return false;
     }

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class AssetAttributeGroup extends Model
 {
-    /** @use HasFactory<\Database\Factories\AttributeGroupFactory> */
+    /** @use HasFactory<\Database\Factories\AssetAttributeGroupFactory> */
     use HasFactory;
 }

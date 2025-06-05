@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAssetAlertsRequest;
-use App\Http\Requests\UpdateAssetAlertsRequest;
-use App\Models\AssetAlerts;
+use App\Http\Requests\StoreAssetAlertRequest;
+use App\Http\Requests\UpdateAssetAlertRequest;
+use App\Models\AssetAlert;
 
-class AssetAlertsController extends Controller
+class AssetAlertController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class AssetAlertsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAssetAlertsRequest $request)
+    public function store(StoreAssetAlertRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class AssetAlertsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(AssetAlerts $assetAlerts)
+    public function show(AssetAlert $assetAlert)
     {
         //
     }
@@ -43,7 +43,7 @@ class AssetAlertsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(AssetAlerts $assetAlerts)
+    public function edit(AssetAlert $assetAlert)
     {
         //
     }
@@ -51,7 +51,7 @@ class AssetAlertsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAssetAlertsRequest $request, AssetAlerts $assetAlerts)
+    public function update(UpdateAssetAlertRequest $request, AssetAlert $assetAlert)
     {
         //
     }
@@ -59,7 +59,7 @@ class AssetAlertsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(AssetAlerts $assetAlerts)
+    public function destroy(AssetAlert $assetAlert)
     {
         //
     }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAttributeAllowedValueRequest;
-use App\Http\Requests\UpdateAttributeAllowedValueRequest;
+use App\Http\Requests\StoreAssetAttributeAllowedValueRequest;
+use App\Http\Requests\UpdateAssetAttributeAllowedValueRequest;
 use App\Models\AssetAttributeAllowedValue;
 
 class AssetAttributeAllowedValueController extends Controller
@@ -27,7 +27,7 @@ class AssetAttributeAllowedValueController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAttributeAllowedValueRequest $request)
+    public function store(StoreAssetAttributeAllowedValueRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class AssetAttributeAllowedValueController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(AssetAttributeAllowedValue $attributeAllowedValue)
+    public function show(AssetAttributeAllowedValue $assetAttributeAllowedValue)
     {
         //
     }
@@ -43,7 +43,7 @@ class AssetAttributeAllowedValueController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(AssetAttributeAllowedValue $attributeAllowedValue)
+    public function edit(AssetAttributeAllowedValue $assetAttributeAllowedValue)
     {
         //
     }
@@ -51,7 +51,7 @@ class AssetAttributeAllowedValueController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAttributeAllowedValueRequest $request, AssetAttributeAllowedValue $attributeAllowedValue)
+    public function update(UpdateAssetAttributeAllowedValueRequest $request, AssetAttributeAllowedValue $assetAttributeAllowedValue)
     {
         //
     }
@@ -59,7 +59,7 @@ class AssetAttributeAllowedValueController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(AssetAttributeAllowedValue $attributeAllowedValue)
+    public function destroy(AssetAttributeAllowedValue $assetAttributeAllowedValue)
     {
         //
     }

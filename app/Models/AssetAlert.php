@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class AssetAlert extends Model
 {
-    /** @use HasFactory<\Database\Factories\AssetAlertsFactory> */
+    /** @use HasFactory<\Database\Factories\AssetAlertFactory> */
     use HasFactory;
 }

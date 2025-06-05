@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class AssetAttributeAllowedValue extends Model
 {
-    /** @use HasFactory<\Database\Factories\AttributeAllowedValueFactory> */
+    /** @use HasFactory<\Database\Factories\AssetAttributeAllowedValueFactory> */
     use HasFactory;
 }
