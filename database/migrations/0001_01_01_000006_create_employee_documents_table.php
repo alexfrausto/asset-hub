@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('employee_document_types', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->constrained('users');
             $table->integer('active')->default(1);
-            $table->string('identifier')->unique();
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('allowed_mime_types')->nullable();
@@ -26,9 +26,9 @@ return new class extends Migration
         Schema::create('employee_documents', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->constrained('users');
-            $table->integer('active')->default(1);
             $table->string('file_name');
             $table->string('file_path');
             $table->string('mime_type');

@@ -25,9 +25,9 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->constrained('users');
-            $table->integer('active')->default(1);
             $table->foreignId('employee_type_id')->constrained('employee_types');
             $table->string('first_name');
             $table->string('last_name');

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('asset_attribute_allowed_values', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->constrained('users');
-            $table->integer('active')->default(1);
             $table->string('identifier')->unique();
             $table->foreignId('asset_attribute_id')->constrained('asset_attributes')->onDelete('cascade');
             $table->string('label');

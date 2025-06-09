@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('asset_attributes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->constrained('users');
-            $table->integer('active')->default(1);
             $table->string('identifier')->unique();
             $table->foreignId('asset_category_id')->constrained('asset_categories');
             $table->foreignId('asset_group_id')->nullable()->constrained('asset_groups');
