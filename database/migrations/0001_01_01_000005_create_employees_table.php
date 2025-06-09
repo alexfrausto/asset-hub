@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('employee_types', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->constrained('users');
-            $table->integer('active')->default(1);
             $table->string('identifier')->unique();
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
         });
 
         Schema::create('employees', function (Blueprint $table) {
@@ -28,25 +28,15 @@ return new class extends Migration
             $table->foreignId('created_by')->constrained('users');
             $table->foreignId('updated_by')->constrained('users');
             $table->integer('active')->default(1);
+            $table->foreignId('employee_type_id')->constrained('employee_types');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('phone')->nullable();
             $table->date('date_of_birth')->nullable();
-            $table->foreignId('department_id')->constrained('departments');
-            $table->string('job_title')->nullable();
-            $table->decimal('salary', 10, 2)->nullable();
             $table->date('hire_date')->nullable();
             $table->date('termination_date')->nullable();
-        });
-
-        Schema::table('departments', function (Blueprint $table) {
-            $table->foreignId('manager_id')->nullable()->constrained('employees');
-            $table->foreignId('parent_department_id')->nullable()->constrained('departments');
-        });
-
-        Schema::table('employees', function (Blueprint $table) {
-            $table->foreignId('manager_id')->nullable()->constrained('employees');
+            $table->string('termination_notes')->nullable();
         });
     }
 
@@ -55,7 +45,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departments');
         Schema::dropIfExists('employees');
     }
 };
