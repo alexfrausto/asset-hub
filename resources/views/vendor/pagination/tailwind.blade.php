@@ -1,29 +1,38 @@
-@if ($paginator->hasPages())
-    <div class="flex-1 flex items-center justify-between">
-        <div>
-            <p class="text-sm text-gray-700 leading-5 dark:text-gray-400">
-                {!! __('Showing') !!}
-                @if ($paginator->firstItem())
-                    <span class="font-medium">{{ $paginator->firstItem() }}</span>
-                    {!! __('to') !!}
-                    <span class="font-medium">{{ $paginator->lastItem() }}</span>
-                @else
-                    {{ $paginator->count() }}
-                @endif
-                {!! __('of') !!}
-                <span class="font-medium">{{ $paginator->total() }}</span>
-                {!! __('results') !!}
-            </p>
-        </div>
-
+<div class="flex-1 flex items-center justify-between">
+    <div>
+        <p class="text-sm text-gray-700 leading-5 dark:text-gray-400">
+            {!! __('Showing') !!}
+            @if ($paginator->firstItem())
+                <span class="font-medium">{{ $paginator->firstItem() }}</span>
+                {!! __('to') !!}
+                <span class="font-medium">{{ $paginator->lastItem() }}</span>
+            @else
+                {{ $paginator->count() }}
+            @endif
+            {!! __('of') !!}
+            <span class="font-medium">{{ $paginator->total() }}</span>
+            {!! __('results') !!}
+        </p>
+    </div>
+    <div class="flex items-center gap-2">
+        {{-- Rows Per Page Dropdown --}}
+        <select onchange="location.href=this.value" class="select select-ghost select-sm w-20">
+            @foreach ([10, 25, 50, 100] as $option)
+                <option value="{{ request()->fullUrlWithQuery(['perPage' => $option, 'page' => null]) }}"
+                    @selected(request('perPage', 10) == $option)>
+                    {{ $option }}
+                </option>
+            @endforeach
+        </select>
+        {{-- Previous Page Link --}}
         <div class="join">
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
                 <button aria-disabled="true" aria-label="{{ __('pagination.previous') }}"
                     class="join-item btn btn-disabled">«</button>
             @else
-                <a role="button" aria-label="{{ __('pagination.previous') }}" href="{{ $paginator->previousPageUrl() }}"
-                    class="join-item btn">«</a>
+                <a role="button" aria-label="{{ __('pagination.previous') }}"
+                    href="{{ $paginator->previousPageUrl() }}" class="join-item btn">«</a>
             @endif
 
             <span class="hidden sm:block">
@@ -57,9 +66,9 @@
                     »
                 </a>
             @else
-                <button aria-disabled="true" aria-label="{{ __('pagination.next') }}" class="join-item btn">»</button>
+                <button aria-disabled="true" aria-label="{{ __('pagination.next') }}"
+                    class="join-item btn btn-disabled">»</button>
             @endif
         </div>
     </div>
-    </nav>
-@endif
+</div>
